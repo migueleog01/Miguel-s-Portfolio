@@ -35,9 +35,10 @@ export default function Hero() {
   return (
     <section className="w-full min-h-screen py-20 bg-zinc-950">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row items-start justify-between ">
-          {/* Left side - Text */}
-          <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start pt-10 ml-[120px] mt-[100px]">
+        {/* Use flex-col for mobile, but revert to original layout for larger screens */}
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+          {/* Left side - Text - Centered on mobile, left-aligned on lg */}
+          <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start pt-10 lg:ml-[120px] lg:mt-[100px] mb-16 lg:mb-0">
             <div className="text-center lg:text-left">
               <motion.h1 
                 custom={0}
@@ -48,7 +49,7 @@ export default function Hero() {
               >
                 Miguel
               </motion.h1>
-              <div className="flex items-center">
+              <div className="flex flex-col sm:flex-row items-center">
                 <motion.h1 
                   custom={1}
                   initial="hidden"
@@ -63,7 +64,7 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible" 
                   variants={textVariants}
-                  className="text-xl text-zinc-400 ml-8 self-end mb-3"
+                  className="text-xl text-zinc-400 sm:ml-8 sm:self-end sm:mb-3 mt-2 sm:mt-0"
                 >
                   /muh·gel/
                 </motion.p>
@@ -71,24 +72,24 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right side - 3-column grid layout */}
-          <div className="w-full lg:w-3/5">
-            <div className="grid grid-cols-3 gap-10 h-full">
-              {/* Column 1 - Image 1 rest*/}
+          {/* Right side - Grid for images - Original layout for md and larger */}
+          <div className="w-full lg:w-3/5 mt-8 lg:mt-0">
+            <div className="grid grid-cols-3 gap-4 md:gap-10 h-full">
+              {/* Column 1 - Image 1 */}
               <div className="col-span-1">
                 <motion.div 
                   custom={0}
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[40vw] max-w-[173px] lg:max-w-[220px] h-[187px] lg:h-[240px] bg-zinc-900 overflow-hidden mt-[20vh] lg:mt-[285px] ml-[2vw] lg:ml-[5px]"
-                  >
+                  className="relative w-[90px] h-[100px] sm:w-[120px] sm:h-[130px] md:w-[40vw] md:max-w-[173px] lg:max-w-[220px] md:h-[187px] lg:h-[240px] bg-zinc-900 overflow-hidden mt-[20px] sm:mt-[30px] md:mt-[20vh] lg:mt-[285px] ml-0 md:ml-[2vw] lg:ml-[5px]"
+                >
                   <Image 
                     src="/images/hero/tokyo.jpeg" 
                     alt="Tokyo cityscape" 
                     fill 
                     className="object-cover transition-opacity duration-300"
-                    sizes="173px"
+                    sizes="(max-width: 640px) 90px, (max-width: 768px) 120px, 173px"
                   />
                 </motion.div>
               </div>
@@ -100,34 +101,34 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[45vw] max-w-[227px] lg:max-w-[280px] h-[357px] lg:h-[420px] bg-zinc-900 rounded-lg overflow-hidden mt-[10vh] lg:mt-[80px] ml-[-5vw] lg:ml-[-50px] mr-[1vw] lg:mr-[5px]"
-                  >
+                  className="relative w-[110px] h-[170px] sm:w-[150px] sm:h-[230px] md:w-[45vw] md:max-w-[227px] lg:max-w-[280px] md:h-[357px] lg:h-[420px] bg-zinc-900 rounded-lg overflow-hidden mt-[10px] sm:mt-[20px] md:mt-[10vh] lg:mt-[80px] ml-[-10px] sm:ml-[-15px] md:ml-[-5vw] lg:ml-[-50px] mr-[5px]"
+                >
                   <Image 
                     src="/images/hero/graduation.jpeg" 
                     alt="Graduation celebration" 
                     fill 
                     className="object-cover hover:opacity-90 transition-opacity duration-300"
-                    sizes="227px"
+                    sizes="(max-width: 640px) 110px, (max-width: 768px) 150px, 227px"
                   />
                 </motion.div>
               </div>
 
               {/* Column 3 - Stacked Images 3 and 4 */}
-              <div className="col-span-1 flex flex-col gap-6">
+              <div className="col-span-1 flex flex-col gap-3 md:gap-6">
                 {/* Image 3 */}
                 <motion.div 
                   custom={2}
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[40vw] max-w-[208px] lg:max-w-[260px] h-[237px] lg:h-[300px] bg-zinc-900 rounded-lg overflow-hidden mt-[8vh] lg:mt-[60px] ml-[-5vw] lg:ml-[-45px]"
-                  >
+                  className="relative w-[100px] h-[115px] sm:w-[140px] sm:h-[160px] md:w-[40vw] md:max-w-[208px] lg:max-w-[260px] md:h-[237px] lg:h-[300px] bg-zinc-900 rounded-lg overflow-hidden mt-[10px] sm:mt-[20px] md:mt-[8vh] lg:mt-[60px] ml-[-15px] sm:ml-[-20px] md:ml-[-5vw] lg:ml-[-45px]"
+                >
                   <Image 
                     src="/images/hero/stadium.jpeg" 
                     alt="Stadium view" 
                     fill 
                     className="object-cover hover:opacity-90 transition-opacity duration-300"
-                    sizes="208px"
+                    sizes="(max-width: 640px) 100px, (max-width: 768px) 140px, 208px"
                   />
                 </motion.div>
 
@@ -137,14 +138,14 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[35vw] max-w-[200px] lg:max-w-[240px] h-[169px] lg:h-[220px] bg-zinc-900 rounded-lg overflow-hidden ml-[-5vw] lg:ml-[-45px]"
-                  >
+                  className="relative w-[90px] h-[75px] sm:w-[130px] sm:h-[110px] md:w-[35vw] md:max-w-[200px] lg:max-w-[240px] md:h-[169px] lg:h-[220px] bg-zinc-900 rounded-lg overflow-hidden ml-[-15px] sm:ml-[-20px] md:ml-[-5vw] lg:ml-[-45px]"
+                >
                   <Image 
                     src="/images/hero/houston.jpeg" 
                     alt="Houston skyline" 
                     fill 
                     className="object-cover hover:opacity-90 transition-opacity duration-300"
-                    sizes="200px"
+                    sizes="(max-width: 640px) 90px, (max-width: 768px) 130px, 200px"
                   />
                 </motion.div>
               </div>
