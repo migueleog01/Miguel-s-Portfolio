@@ -81,8 +81,8 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[173px] h-[187px] bg-zinc-900 overflow-hidden mt-[285px] ml-[5px] "
-                >
+                  className="relative w-[40vw] max-w-[173px] lg:max-w-[220px] h-[187px] lg:h-[240px] bg-zinc-900 overflow-hidden mt-[20vh] lg:mt-[285px] ml-[2vw] lg:ml-[5px]"
+                  >
                   <Image 
                     src="/images/hero/tokyo.jpeg" 
                     alt="Tokyo cityscape" 
@@ -100,8 +100,8 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[227px] h-[357px] bg-zinc-900 rounded-lg overflow-hidden mt-[80px] ml-[-50px] mr-[5px]"
-                >
+                  className="relative w-[45vw] max-w-[227px] lg:max-w-[280px] h-[357px] lg:h-[420px] bg-zinc-900 rounded-lg overflow-hidden mt-[10vh] lg:mt-[80px] ml-[-5vw] lg:ml-[-50px] mr-[1vw] lg:mr-[5px]"
+                  >
                   <Image 
                     src="/images/hero/graduation.jpeg" 
                     alt="Graduation celebration" 
@@ -120,8 +120,8 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[208px] h-[237px] bg-zinc-900 rounded-lg overflow-hidden mt-[60px] ml-[-45px]"
-                >
+                  className="relative w-[40vw] max-w-[208px] lg:max-w-[260px] h-[237px] lg:h-[300px] bg-zinc-900 rounded-lg overflow-hidden mt-[8vh] lg:mt-[60px] ml-[-5vw] lg:ml-[-45px]"
+                  >
                   <Image 
                     src="/images/hero/stadium.jpeg" 
                     alt="Stadium view" 
@@ -137,8 +137,8 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={imageVariants}
-                  className="relative w-[200px] h-[169px] bg-zinc-900 rounded-lg overflow-hidden ml-[-45px]"
-                >
+                  className="relative w-[35vw] max-w-[200px] lg:max-w-[240px] h-[169px] lg:h-[220px] bg-zinc-900 rounded-lg overflow-hidden ml-[-5vw] lg:ml-[-45px]"
+                  >
                   <Image 
                     src="/images/hero/houston.jpeg" 
                     alt="Houston skyline" 
