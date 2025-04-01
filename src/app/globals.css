@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --accent-color-1: #3b82f6;
+  --accent-color-2: #9333ea;
 }
 
 @theme inline {
@@ -23,4 +27,129 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Moonlight Mode Styles */
+.moonlight-mode .moonlight-gradient {
+  opacity: 1;
+}
+
+.moonlight-mode {
+  --background-color: #0a0a1a;
+}
+
+.moonlight-mode ::selection {
+  background-color: rgba(147, 51, 234, 0.3);
+}
+
+/* Add subtle star effect in moonlight mode */
+.moonlight-mode body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 3px);
+  background-size: 150px 150px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Adjust components in moonlight mode */
+.moonlight-mode .bg-zinc-800 {
+  background-color: rgba(15, 15, 40, 0.6);
+}
+
+.moonlight-mode .bg-zinc-900 {
+  background-color: rgba(10, 10, 30, 0.8);
+}
+
+.moonlight-mode .border-zinc-700 {
+  border-color: rgba(147, 51, 234, 0.2);
+}
+
+/* Special glow for buttons in moonlight mode */
+.moonlight-mode .from-blue-500,
+.moonlight-mode .to-purple-600 {
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.4);
+}
+
+/* Tokyo Night Theme Syntax Highlighting */
+.tokyo-night-code-snippet {
+  font-family: 'Fira Code', monospace;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.tokyo-night-code-snippet code {
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.tokyo-night-code-snippet .token.comment,
+.tokyo-night-code-snippet .token.prolog,
+.tokyo-night-code-snippet .token.doctype,
+.tokyo-night-code-snippet .token.cdata {
+  color: #565f89;
+}
+
+.tokyo-night-code-snippet .token.punctuation {
+  color: #89ddff;
+}
+
+.tokyo-night-code-snippet .token.property,
+.tokyo-night-code-snippet .token.tag,
+.tokyo-night-code-snippet .token.boolean,
+.tokyo-night-code-snippet .token.number,
+.tokyo-night-code-snippet .token.constant,
+.tokyo-night-code-snippet .token.symbol {
+  color: #ff9e64;
+}
+
+.tokyo-night-code-snippet .token.selector,
+.tokyo-night-code-snippet .token.attr-name,
+.tokyo-night-code-snippet .token.string,
+.tokyo-night-code-snippet .token.char,
+.tokyo-night-code-snippet .token.builtin {
+  color: #9ece6a;
+}
+
+.tokyo-night-code-snippet .token.operator,
+.tokyo-night-code-snippet .token.entity,
+.tokyo-night-code-snippet .token.url,
+.tokyo-night-code-snippet .language-css .token.string,
+.tokyo-night-code-snippet .style .token.string {
+  color: #bb9af7;
+}
+
+.tokyo-night-code-snippet .token.atrule,
+.tokyo-night-code-snippet .token.attr-value,
+.tokyo-night-code-snippet .token.keyword {
+  color: #7dcfff;
+}
+
+.tokyo-night-code-snippet .token.function,
+.tokyo-night-code-snippet .token.class-name {
+  color: #f7768e;
+}
+
+.tokyo-night-code-snippet .token.regex,
+.tokyo-night-code-snippet .token.important,
+.tokyo-night-code-snippet .token.variable {
+  color: #bb9af7;
+}
+
+.tokyo-night-code-snippet .token.important,
+.tokyo-night-code-snippet .token.bold {
+  font-weight: bold;
+}
+
+.tokyo-night-code-snippet .token.italic {
+  font-style: italic;
+}
+
+.tokyo-night-code-snippet .token.entity {
+  cursor: help;
 }
