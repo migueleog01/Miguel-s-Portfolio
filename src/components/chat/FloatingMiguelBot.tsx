@@ -11,7 +11,6 @@ import { Input } from '@/components/ui/input';
 export default function FloatingMiguelBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [hasAnimated, setHasAnimated] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { messages, addMessage, isTyping } = useChatContext();
 
@@ -19,18 +18,19 @@ export default function FloatingMiguelBot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Scroll to bottom when messages change
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  // Auto-popup effect with welcome message
-  useEffect(() => {
-    // Reset localStorage flag for testing (remove in production)
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('miguelbot_has_greeted');
+    if (isOpen) {
+      scrollToBottom();
     }
-    
-    const hasGreeted = typeof window !== 'undefined' ? localStorage.getItem('miguelbot_has_greeted') : null;
+  }, [messages, isOpen]);
+
+  // Auto-popup effect with welcome message - ONCE PER SITE VISIT
+  useEffect(() => {
+    // Check if we've already shown the greeting this session
+    const hasGreeted = typeof window !== 'undefined' 
+      ? sessionStorage.getItem('miguelbot_has_greeted') 
+      : null;
     
     if (!hasGreeted) {
       console.log('Setting up auto-popup timer...');
@@ -43,13 +43,24 @@ export default function FloatingMiguelBot() {
         }
         
         if (typeof window !== 'undefined') {
-          localStorage.setItem('miguelbot_has_greeted', 'true');
+          // Use sessionStorage instead of localStorage to reset when browser is closed
+          sessionStorage.setItem('miguelbot_has_greeted', 'true');
         }
       }, 3000);
       
       return () => clearTimeout(timer);
     }
   }, [addMessage, messages.length]);
+
+  // When chat is opened (either automatically or manually), scroll to the bottom
+  useEffect(() => {
+    if (isOpen) {
+      // Small delay to ensure the chat is fully rendered
+      setTimeout(() => {
+        scrollToBottom();
+      }, 100);
+    }
+  }, [isOpen]);
 
   // Keyboard shortcut for toggling chat
   useEffect(() => {

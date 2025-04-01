@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import HorizontalScrollGallery from '@/components/animations/HorizontalScrollGallery';
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
   const container = {
@@ -31,7 +32,8 @@ export default function Home() {
   };
 
   return (
-    <>
+    <main>
+      <Hero />
       <div className="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 z-0 opacity-20 py-16">
@@ -176,6 +178,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
