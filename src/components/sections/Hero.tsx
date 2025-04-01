@@ -74,7 +74,7 @@ export default function Hero() {
           {/* Right side - 3-column grid layout */}
           <div className="w-full lg:w-3/5">
             <div className="grid grid-cols-3 gap-10 h-full">
-              {/* Column 1 - Image 1 */}
+              {/* Column 1 - Image 1 rest*/}
               <div className="col-span-1">
                 <motion.div 
                   custom={0}
